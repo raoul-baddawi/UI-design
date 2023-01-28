@@ -14,6 +14,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
 
 function open() {
-    let open = document.querySelector(".sidebar");
+    let open = document.getElementsByClassName(".sidebar");
     open.classList.toggle("sidebar-2")
 }
