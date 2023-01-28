@@ -13,12 +13,6 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
 
-          function pop(){
-            var lol = document.getElementsByid("audio");
-            lol.play();
-            console.log("akal");
-          }  
-          
 function open() {
     let open = document.querySelector(".sidebar");
     open.classList.toggle("sidebar-2")
