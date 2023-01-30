@@ -50,13 +50,15 @@ navbar {
     text-decoration: underline;
 }
 
-.navbar {
+@media all and (min-width: 768px) {
+  .navbar {
     min-width: 20vw;
     gap: 20px;
     display: flex;
     float: left;
     position: absolute;
     margin-left: 20vw;
+}
 }
 
 
@@ -473,7 +475,7 @@ button {
 
 
 .white-space {
-  height: 100vh;
+  height: 107vh;
   width: 100%;
   background-color:white;
   display: flex;
@@ -484,8 +486,8 @@ button {
 }
 
 .transparent-space {
-  background-color: transparent;
-  height: 50vh;
+  background-color: white;
+    height: 100vh;
 }
 
 @keyframes tonext {
@@ -743,6 +745,7 @@ button {
   }
 
   .card {
+    min-width: 215px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -873,4 +876,93 @@ button {
     position: absolute;
     left: 0;
     top: 5px;
+  }
+
+
+
+  .footer-space {
+    bottom: -178px;
+    position: absolute;
+    color: white;
+    height: 530px;
+    width: 100%;
+    background-color: #00545d;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  
+
+  @media all and (max-width:730px){
+    .navbar {
+      min-width: 20vw;
+      gap: 20px;
+      display: flex;
+      grid-row-start: 2;
+  }
+
+  navbar {
+    width: 85%;
+    height: 15%;
+    margin: auto;
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px 50px 50px;
+}
+
+.btn-1 {
+  width: 100px;
+  font-size: 1vw;
+  text-decoration: none;
+  color: rgb(251, 252, 253);
+  padding: 1vw 3vw;
+  background: transparent;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 30px;
+  outline: none;
+  cursor: pointer;
+}
+
+.white-space {
+  height: 109vh;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.cards {
+  height: 100vh;
+  margin: 0 auto;
+  width: 68%;
+  height: 98vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  /* grid-template-rows: 700px 700px 700px; */
+  grid-gap: 20px;
+}
+
+.footer-space {
+  color: white;
+  bottom: 0;
+  position: absolute;
+  height: 300px;
+  width: 100%;
+  background-color: #00545d;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.card-3,
+.card-2{
+  display: none;
+}
   }
