@@ -216,6 +216,7 @@ button {
 .battikh-2 {
     width: 100%;
     position: sticky;
+    top: 0;
     overflow: hidden;
     background-color: rgba(112, 126, 255, 0);
     display: flex;
@@ -262,8 +263,8 @@ button {
 .abyad-space-op {
     color: rgb(0, 84, 93);
     width: 100%;
-    height: 135vh;
-    background-color: white;
+    height: 110vh;
+    background-image: linear-gradient(to bottom, rgb(8, 47, 75, 0.6), rgba(147, 159, 179), rgb(156, 161, 179), #ffffff, #ffffff);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -281,12 +282,43 @@ button {
 
 .btn-tlete {
     font-size: 1.3vw;
-    padding: 10px 3vw;
+    width: 12vw;
+    max-width: 15vw;
+    height: 3vw;
     background-color: rgb(0, 84, 93);
     color: white;
     text-decoration: none;
+    border: 2px solid rgb(0, 84, 93);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s ease-in-out;
+
 }
 
+.btn-tlete:hover {
+    color: rgb(0, 84, 93);
+}
+.btn-tlete::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    top: -3vw;
+    left: 0;
+    background-color: white;
+    position: absolute;
+    transition: 0.4s;
+}
+
+.btn-tlete p {
+    position: absolute;
+}
+.btn-tlete:hover::before{
+    top: 0;
+}
 .img-wrapper {
     position: relative;
     overflow: hidden;
@@ -409,3 +441,436 @@ button {
     width: 100px;
     height: 100px;
 }
+
+
+.battikh-4 {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20vh 80vh;
+    align-items: center;
+    text-align: center;
+    font-size: 2vw;
+}
+
+
+.battikh-5 {
+    margin-top: 50vh;
+    height: 100vh;
+    position: sticky;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20vh 80vh;
+    align-items: center;
+    text-align: center;
+    font-size: 2vw;
+}
+
+
+.white-space {
+  height: 100vh;
+  width: 100%;
+  background-color:white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  
+}
+
+.transparent-space {
+  background-color: transparent;
+  height: 50vh;
+}
+
+@keyframes tonext {
+    75% {
+      left: 0;
+    }
+    95% {
+      left: 100%;
+    }
+    98% {
+      left: 100%;
+    }
+    99% {
+      left: 0;
+    }
+  }
+  
+  @keyframes tostart {
+    75% {
+      left: 0;
+    }
+    95% {
+      left: -300%;
+    }
+    98% {
+      left: -300%;
+    }
+    99% {
+      left: 0;
+    }
+  }
+  
+  @keyframes snap {
+    96% {
+      scroll-snap-align: center;
+    }
+    97% {
+      scroll-snap-align: none;
+    }
+    99% {
+      scroll-snap-align: none;
+    }
+    100% {
+      scroll-snap-align: center;
+    }
+  }
+ ::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: none;
+  }
+  
+  * {
+    -ms-overflow-style: none;
+  }
+
+  
+  ol, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .carousel {
+    height: 80vh;
+    position: relative;
+    perspective: 100px;
+    width: 100%;
+  }
+  
+  .carousel__viewport {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    overflow-x: scroll;
+    counter-reset: item;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+  }
+  
+  .carousel__slide {
+    position: relative;
+    flex: 0 0 100%;
+    width: 100%;
+    background-color: #f99;
+    counter-increment: item;
+  }
+  
+  .carousel__slide:nth-child(even) {
+    background-color: #99f;
+  }
+  
+  .carousel__slide:before {
+    content: 'hello world';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-40%,70px);
+    color: #fff;
+    font-size: 2em;
+  }
+  
+  .carousel__snapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: center;
+  }
+  
+  @media (hover: hover) {
+    .carousel__snapper {
+      animation-name: tonext, snap;
+      animation-timing-function: ease;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+    }
+  
+    .carousel__slide:last-child .carousel__snapper {
+      animation-name: tostart, snap;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .carousel__snapper {
+      animation-name: none;
+    }
+  }
+  
+  .carousel:hover .carousel__snapper,
+  .carousel:focus-within .carousel__snapper {
+    animation-name: none;
+  }
+  
+  .carousel__navigation {
+    position: absolute;
+    right: 0;
+    bottom: 25px;
+    left: 0;
+    text-align: center;
+  }
+  
+  .carousel__navigation-list,
+  .carousel__navigation-item {
+    display: inline-block;
+  }
+  
+  .carousel__navigation-button {
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    background-color: #333;
+    background-clip: content-box;
+    border: 0.25rem solid transparent;
+    border-radius: 50%;
+    font-size: 0;
+    transition: transform 0.1s;
+  }
+  
+  .carousel::before,
+  .carousel::after,
+  .carousel__prev,
+  .carousel__next {
+    position: absolute;
+    top: 0;
+    margin-top: 39vh;
+    width: 4rem;
+    height: 4rem;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    font-size: 0;
+    outline: 0;
+  }
+  
+  .carousel::before,
+  .carousel__prev {
+    left: 5rem;
+  }
+  
+  .carousel::after,
+  .carousel__next {
+    right: 5rem;
+  }
+  
+  .carousel::before,
+  .carousel::after {
+    content: '';
+    z-index: 1;
+    background-color: #333;
+    background-size: 1.5rem 1.5rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: #fff;
+    font-size: 2.5rem;
+    line-height: 4rem;
+    text-align: center;
+    pointer-events: none;
+  }
+  
+  .carousel::before {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,50 80,100 80,0' fill='%23fff'/%3E%3C/svg%3E");
+  }
+  
+  .carousel::after {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
+  }
+
+
+  #carousel__slide1 {
+    background-image: url(./images/fishing-rods-buying-guide-lead-1663971291.jpg);
+  }
+
+  #carousel__slide2 {
+    background-image: url(./images/beach-1824855.jpg);
+  }
+
+  #carousel__slide3 {
+    background-image: url(./images/wave-1913559.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; 
+  }
+
+  #carousel__slide4 {
+    background-image: url(./images/sea-164989.jpg);
+    background-size: contain; 
+  }
+
+  .header-selling {
+    color: #00545d;
+  }
+
+  .employees {
+    color: #00545d;
+  }
+
+
+  .cards {
+    margin: 0 auto;
+    width: 68%;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 33px;
+    overflow: hidden;
+    border: 1px solid #00545d;
+  }
+
+  .split-1 {
+    width: 50%;
+    height: 100%;
+    background-color: #00545d;;
+  }
+
+  .split-2 {
+    width: 50%;
+    height: 100%;
+    background-color: aliceblue;
+  }
+
+  .card::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50%;
+    background-color: aliceblue;
+    border-bottom-left-radius: 30px;
+  }
+
+  .card::before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    background-color: #00545d;
+    border-top-right-radius: 30px;
+  }
+
+  .split-1::before {
+    content: '';
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px #00545d, 0 0 0 4px white;
+    background: url(./images/rrr.jpg);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -180%);
+  }
+
+  .split-1::after {
+    content: "Raoul Baddawi";
+    font-size: large;
+    display: block;
+    color: white;
+    position: absolute;
+    bottom: -50px;
+    width: 100%;
+    height: 50%;
+  }
+
+
+  .mein {
+    width: 100%;
+    margin: 0 auto;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 420px;
+  }
+
+  .footr {
+    display: grid;
+    grid-template-columns: 65% 35%;
+    grid-template-rows: 20vh 20vh;
+    grid-row-gap: 100px;
+    background-color: #00545d;
+  }
+
+  .single-footer h4 {
+    text-transform: capitalize;
+    font-size: 22px;
+  }
+
+  .footer-social {
+     color: #333;
+     width: 40px;
+     height: 40px;
+     display: inline-block;
+     text-align: center;
+     line-height: 40px;
+     border-radius: 50%;
+     margin-right: 10px;
+  }
+
+  .footer-social {
+    margin-top: 20px;
+  }
+
+  .single-footer ul {
+    list-style: none;
+  }
+
+  .single-footer ul li {
+    color: white;
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  .single-footer ul li a {
+    color: rgb(255, 255, 255);
+    text-transform: capitalize;
+    text-decoration: navajowhite;
+  }
+
+  .single-footer ul li a i {
+    position: absolute;
+    left: 0;
+    top: 5px;
+  }
